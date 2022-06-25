@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
 import Affairs from './Affairs'
+import affair from "./Affair";
+import affairs from "./Affairs";
 
 // types
 export type AffairPriorityType = 'high' | 'middle' | 'low'
@@ -9,11 +11,11 @@ export type AffairType = {
     priority:string
 }
 
+
+
 export type FilterType = 'all' | AffairPriorityType
 
 // constants
-
-
 
 const defaultAffairs: AffairType[] = [
     {_id: 1, name: 'React', priority: 'high'},
@@ -24,12 +26,12 @@ const defaultAffairs: AffairType[] = [
 ]
 
 // pure helper functions
-export const filterAffairs = (affairs: AffairType[], filter: FilterType): any => { // need to fix any
+export const filterAffairs = (affairs: AffairType[], filter: FilterType): AffairType[] => { // need to fix any
     if (filter === 'all') return affairs
     else return affairs.filter( (f) => f.priority === filter)
 }
-export const deleteAffair = (affairs: AffairType[], _id: number): any => { // need to fix any
-    return // need to fix
+export const deleteAffair = (affairs: AffairType[], _id: number): AffairType[] => { // need to fix any
+    return affairs.filter( (f) => f._id !== _id)
 }
 
 function HW2() {
@@ -47,7 +49,7 @@ function HW2() {
             {/*should work (должно работать)*/}
             <Affairs
                 data={filteredAffairs}
-                setFilter={'all'} /*setFilter*/
+                setFilter={setFilter}
                 deleteAffairCallback={deleteAffairCallback}
             />
 
