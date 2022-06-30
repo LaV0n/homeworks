@@ -1,7 +1,22 @@
 .someClass {
-
+    border: 5px solid #287202;
+    background-color: lime;
 }
 
-.error {
-    border: 1px solid red;
+.errorClass {
+    border: 2px solid red;
+}
+.block {
+    margin:10px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.redError {
+    color: white;
+    background-color: red;
+}
+.blueError {
+    color: white;
+    background-color: #0048ff;
 }
